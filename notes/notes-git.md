@@ -1,9 +1,9 @@
 ## Git Configurations
 
 ```git
-git config --global user.name "Allandel Valencia"
-git config --global user.email "advalen09@outlook.com"
-git remote add origin 'https://github.com/advalen/de-zoomcamp-2024'
+git config --global user.name "Your Name"
+git config --global user.email "youremail@address.com"
+git remote add origin 'https://github.com/yourgithub/reponame'
 git config --list
 ```
 
@@ -24,8 +24,6 @@ git push -u origin main
 Create new branch
 ```git
 git checkout -b main # or `git switch -c main`
-
-
 ```
 
 
