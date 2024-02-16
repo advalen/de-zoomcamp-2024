@@ -1,0 +1,6 @@
+# Files to ignore
+week-1/ny_taxi_postgres_data/*
+youtube-playlist/*
+
+# Files to include
+!week-1/ny_taxi_postgres_data/README.md
