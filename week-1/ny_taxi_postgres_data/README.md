@@ -4,6 +4,8 @@ This folder represents the volume of the docker container of the PostgreSQL Serv
 
 Below is the snapshot of the files as shown by command `ls -la` as of February 12, 2024 (user is censored):
 
+
+```plaintext
 total 92
 drwxr-xr-x 1 user 197609     0 Feb 12 01:10 .
 drwxr-xr-x 1 user 197609     0 Feb 11 02:23 ..
