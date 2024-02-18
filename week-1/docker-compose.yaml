@@ -14,28 +14,9 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
+    volumes:
+      - "pgadmin_conn_data:/var/lib/pgadmin:rw"
     ports:
       - "8080:80"
-    
-
-docker run -it \
-  -e POSTGRES_USER=root \
-  -e POSTGRES_PASSWORD=root \
-  -e POSTGRES_DB=ny_taxi \
-  -v c:/Users/adval/OneDrive/git/data-engineering-zoomcamp-2024/week-1/ny_taxi_postgres_data:/var/lib/postgresql/data:rw \
-  -p 5432:5432 \
-  postgres:13
-
-pgcli -h localhost -p 5432 -u root -d ny_taxi
-
-  https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-
-  export GOOGLE_APPLICATION_CREDENTIALS=/c/Users/adval/.ssh/advalen-de-zoomcamp-2024-93ebc31fb43b.json
-  gcloud autho application-default login
-
-
-# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
-Host ssh-advalen-data-engineering-zoomcamp
-    HostName 34.134.221.191
-    User adval
-    IdentityFile C:\Users\adval\ssh-keys\ssh-advalen-data-engineering-zoomcamp
+volumes:
+  pgadmin_conn_data:

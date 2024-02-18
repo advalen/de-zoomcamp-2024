@@ -1,22 +1,36 @@
 ## Google Cloud Setup
 
-**Google Cloud SDK Installation**
-- Follow the instructions on this link: https://cloud.google.com/sdk/docs/install
-- CLI guide: https://cloud.google.com/sdk/gcloud
+### Initialize Google Cloud SDK Configuration
 
-**Compute Instance VM**:
-- NAME: xxxxxxx-de-zoomcamp-vm
-- ZONE: us-central1-a
-- MACHINE_TYPE: t2a-standard-8
-- INTERNAL_IP: 10.xxx.x.x
-- EXTERNAL_IP: 34.xxx.xx.xx (static)
+1. Install Google Cloud SDK:
+   - Follow the instructions on this link: https://cloud.google.com/sdk/docs/install
+   - CLI guide: https://cloud.google.com/sdk/gcloud
 
-**SSH to Virtual Machine using SDK**
-- Open Google Cloud SDK
-- Run:
+2. Run `gcloud init` in Terminal and configure default settings:
+   - Re-initialize / create new configuration
+   - Set configuration name
+   - Select / login new google account
+   - Select / create new project
+   - Select zone [30] asia-southeast1-a
+   
+3. Create a service account (in Terminal)
+    ```
+    gcloud iam service-accounts create SERVICE_ACCOUNT_NAME --description="DESCRIPTION" --display-name="DISPLAY_NAME"
+    ```
 
-```
-gcloud init
-gcloud compute ssh instancename --project=projectname --zone=us-central1-a
-```
+4. Generate a JSON key file for the service account
+    ```
+    gcloud iam service-accounts keys create /c/set/your/path/KEY_FILE.json --iam-account=SERVICE_ACCOUNT_EMAIL
+    ```
 
+5. Update .bash_rc or .bash_profile:
+    ```
+    export GOOGLE_APPLICATION_CREDENTIALS=/c/Users/thyself/.ssh/service-account-key-file.json
+    ```
+
+6. Initialize
+    ```
+    gcloud init
+    gcloud auth application-default login
+    gcloud compute ssh instancename --project=projectname --zone=us-central1-a
+    ```
